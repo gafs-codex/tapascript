@@ -5,13 +5,15 @@ const profile = {
     age: 25,
     isAdmin: false
 }
-const list = ["code", "play game", "stretch"]
+const list = ["code and update codex", "play games", "stretch my leg"]
 function Colorize() {
     const [color, setColor] = useState('#ef4565')
     const [isOn, setIsOn] = useState(false)
     const [count, setCount] = useState(0)
     const [name, setName] = useState("")
     const [user, setUser] = useState(profile)
+    const [todos, setTodos] = useState(list)
+    const [input, setInput] = useState("")
     const styles = {
         backgroundColor: color
     }
@@ -51,6 +53,22 @@ function Colorize() {
             }
         })
     }
+    const typeInp = (event) => {
+        setInput(event.target.value)
+    }
+
+    const addTodo = () => {
+        // input ? (setTodos(prev => [...prev, input]), setInput("")) : null
+        if (input) {
+            setTodos(prev => [...prev, input])
+            setInput("")
+        }
+    }
+    const todoItem = todos.map((item, index) => {
+        return <li key={index} className="list">
+            {item}
+        </li>
+    })
     return (
         <>
             <h4>count is {count}</h4>
@@ -84,7 +102,23 @@ function Colorize() {
                 <br />
                 <button className="admin" onClick={makeAdmin}>Make Admin</button>
             </div>
+
+
+
+            <div className="array">
+                <input
+                    type="text"
+                    name=""
+                    value={input}
+                    placeholder="Add a todo"
+                    onChange={typeInp}
+                />
+                <button onClick={addTodo}>Add</button>
+                <ul>
+                    {todoItem}
+                </ul>
+            </div>
         </>
     )
 }
-export default Colorize;
+export default Colorize; ``

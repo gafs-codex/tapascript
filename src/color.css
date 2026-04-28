@@ -50,3 +50,18 @@ h4 {
 .object button {
     margin: 5px 0px;
 }
+
+.array {
+    border: 2px solid black;
+    width: fit-content;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.array input {
+    margin-right: 10px;
+}
+
+.list {
+    margin-top: 10px;
+}
