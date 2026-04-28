@@ -32,10 +32,7 @@ function App() {
 
   return (
     <>
-      <h1>My Pets</h1>
-      <ul>
-        {myPet}
-      </ul>
+
     </>
   )
 }
