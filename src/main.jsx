@@ -9,6 +9,7 @@ import MovieList from './MovieList.jsx'
 import UserProfile from './UserProfile.jsx'
 import Timer from './Timer.jsx'
 import Storage from './Storage.jsx'
+import FindUser from './FindUser.jsx'
 
 createRoot(document.getElementById('root')).render(
   // <App />
@@ -18,5 +19,6 @@ createRoot(document.getElementById('root')).render(
   // <MovieList />
   // <UserProfile />
   // <Timer />
-  <Storage />
+  // <Storage />
+  <FindUser />
 )
