@@ -10,7 +10,11 @@ import UserProfile from './UserProfile.jsx'
 import Timer from './Timer.jsx'
 import Storage from './Storage.jsx'
 import FindUser from './FindUser.jsx'
-
+import Reference from './Reference.jsx'
+import CallMemo from './CallMemo.jsx'
+import ContextApp from './ContextApp.jsx'
+import Form from './Form.jsx'
+import ClaudeForm from './ClaudeForm.jsx'
 createRoot(document.getElementById('root')).render(
   // <App />
   // <MovieApp />
@@ -20,5 +24,10 @@ createRoot(document.getElementById('root')).render(
   // <UserProfile />
   // <Timer />
   // <Storage />
-  <FindUser />
+  // <FindUser />
+  // <Reference />
+  // <CallMemo />
+  // <ContextApp />
+  // <Form />
+  <ClaudeForm />
 )
