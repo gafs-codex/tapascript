@@ -15,6 +15,8 @@ import CallMemo from './CallMemo.jsx'
 import ContextApp from './ContextApp.jsx'
 import Form from './Form.jsx'
 import ClaudeForm from './ClaudeForm.jsx'
+import ReactForms from './ReactForms.jsx'
+
 createRoot(document.getElementById('root')).render(
   // <App />
   // <MovieApp />
@@ -29,5 +31,6 @@ createRoot(document.getElementById('root')).render(
   // <CallMemo />
   // <ContextApp />
   // <Form />
-  <ClaudeForm />
+  // <ClaudeForm />
+  <ReactForms />
 )

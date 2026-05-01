@@ -1,94 +1,90 @@
 import { useState } from "react";
+
+const formObjects = {
+    fname: "",
+    email: "",
+    password: "",
+    city: ""
+}
+
 function ClaudeForm() {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+    const [form, setForm] = useState(formObjects)
 
 
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-
-
-        if (!name) {
-            setError("Name is required")
-            return
-        }
-        if (!email) {
-            setError("Email is required")
-            return
-        }
-        if (!password) {
-            setError("Password is required")
-            return
-        }
-        if (password.length < 6) {
-            setError("Password must be at least 6 characters")
-            return
-        }
-
-        
-        console.log("Submitted:", name);
-        alert(`Hello ${name}`)
-        setName("")
-        setEmail("")
-        setPassword("")
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log("Form data:", form)
+        setForm(formObjects)
     }
 
+    function handleChange(event) {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        setForm((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
+
+
+
     return (
-        <>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <form action="" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Your name: </label>
-                    <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={name}
-                        placeholder="Enter your name"
-                        // required
-                        onChange={e => setName(e.target.value)}
-                    />
-                </div>
+        <form action="" onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="fname">First Name </label>
+                <input
+                    type="text"
+                    name="fname"
+                    id="fname"
+                    value={form.fname}
+                    placeholder="Enter First Name"
+                    required
+                    onChange={handleChange}
+                />
+            </div>
 
+            <div>
+                <label htmlFor="email">Email </label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={form.email}
+                    placeholder="example@gmail.com"
+                    required
+                    onChange={handleChange}
+                />
+            </div>
 
-                <div>
+            <div>
+                <label htmlFor="password">Password </label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    value={form.password}
+                    required
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="city">City</label>
+                <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    value={form.city}
+                    placeholder="Enter city"
+                    onChange={handleChange}
+                />
+            </div>
 
-                    <label htmlFor="email">Email: </label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={email}
-                        placeholder="example@gmail.com"
-                        // required
-                        onChange={e => setEmail(e.target.value)}
-                    />
-
-                </div>
-
-
-                <div>
-                    <label htmlFor="email">Password: </label>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={password}
-                        placeholder=""
-                        // required
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
-            <br />
-
-            <div>{name}</div>
-        </>
+            <button type="submit">Register</button>
+        </form>
     )
 }
 export default ClaudeForm;
